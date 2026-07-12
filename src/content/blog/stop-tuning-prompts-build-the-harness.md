@@ -9,7 +9,7 @@ translation: deja-de-ajustar-prompts-construye-el-harness
 
 ## The problem
 
-AI has changed how teams work, and it will keep changing it. But for most people, using it still feels like alchemy. You change a few words in a prompt, the output comes back completely different, and nobody can quite say why. If that's the whole method, quality comes down to luck.
+For most people, using AI still feels like alchemy. You change a few words in a prompt, the output comes back completely different, and nobody can quite say why. If that's the whole method, quality comes down to luck.
 
 That's not a small problem, because it's no longer only the AI teams. It's the analyst generating a quarterly report, the engineer writing tests, the support lead automating replies. Anyone putting a model into real work hits the same wall: the results are good, then they're wrong, and there's no reliable dial to turn.
 
@@ -58,13 +58,13 @@ Karpathy's mental model is the one to keep. The model is like a CPU, and its con
 
 Context is what the model sees. Reliability needs more than good inputs. It also needs the checks on the model's way out, and the fixes that keep yesterday's mistake from recurring. That whole apparatus is **the harness**.
 
-The term comes from Mitchell Hashimoto, creator of Terraform and Ghostty, in a February 2026 essay. His formula: Agent = Model + Harness. The model is the part you rent and don't control; the harness is the part you build and own. His definition of the discipline is a single rule: "anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again."
+The term comes from Mitchell Hashimoto, creator of Terraform and Ghostty, in a February 2026 essay. His formula: Agent = Model + Harness. You rent the model and don't control it. You build and own the harness. His definition of the discipline is a single rule: "anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again."
 
 A recurring mistake, in other words, gets engineered out once, rather than re-prompted around every time it shows up.
 
 ## What's actually in a harness
 
-Software has a head start here. It built this exact thing decades ago and called it a test harness: the machinery around a piece of code that feeds it controlled inputs, runs it under known conditions, captures what comes out, and checks it against what should have come out, automatically, the same way every time. The code was the part that kept changing; the harness stayed put, and that fixed apparatus was what made the code safe to depend on.
+Software has a head start here. It built this exact thing decades ago and called it a test harness: the machinery around a piece of code that feeds it controlled inputs, runs it under known conditions, captures what comes out, and checks it against what should have come out, automatically, the same way every time. The code was the part that kept changing. The harness stayed put, and that fixed apparatus was what made the code safe to depend on.
 
 A model's harness is the same idea, with more of it, because a model is less predictable than code. Put next to the earlier snippets, the model shrinks to a single line and everything around it is the work:
 

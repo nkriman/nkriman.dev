@@ -475,6 +475,189 @@ hr::after {
   .flow-arrow::before { content: '↓'; }
 }
 
+/* ---- Figure kit: shared pieces for hand-built article diagrams ---- */
+.fig-frame {
+  border: 1px solid var(--color-ink);
+  background: var(--color-surface);
+  padding: 20px;
+}
+.fig-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+}
+.fig-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-top: 14px;
+}
+.chip {
+  display: inline-block;
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.chip-ink { background: var(--color-ink); color: var(--color-surface); }
+.chip-lime { background: var(--color-lime); }
+.fig-arrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 0 4px;
+  align-self: center;
+}
+@media (min-width: 960px) {
+  main.prose-page .fig {
+    width: 880px;
+    margin-left: -100px;
+  }
+}
+
+/* Fig: time bars */
+.bar-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 14px;
+}
+.bar-who strong { display: block; font-size: 14px; font-weight: 600; }
+.bar-who span { display: block; font-size: 12px; color: var(--color-muted); line-height: 1.4; }
+.bar-track { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.bar { height: 16px; background: var(--color-ink); flex: none; }
+.bar-time { font-family: var(--font-mono); font-size: 11px; color: var(--color-muted); white-space: nowrap; }
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* Fig: pattern cards */
+.pcard-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.pcard {
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+  padding: 10px 12px;
+  width: calc(33.33% - 7px);
+}
+.pcard strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.pcard span { font-size: 13px; line-height: 1.4; display: block; }
+.pcard-dashed { border-style: dashed; background: transparent; }
+.pcard-dashed strong, .pcard-dashed span { color: var(--color-muted); }
+.pcard-group-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 8px 0 16px;
+}
+@media (max-width: 640px) {
+  .pcard { width: calc(50% - 5px); }
+}
+
+/* Fig: pattern card anatomy */
+.anatomy { border: 1px solid var(--color-ink); background: var(--color-paper); }
+.anatomy-head {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.anatomy-field { padding: 12px 16px; }
+.anatomy-field + .anatomy-field { border-top: 1px solid var(--color-line); }
+.anatomy-field strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 4px;
+}
+.anatomy-field span { font-size: 14px; line-height: 1.55; }
+
+/* Fig: loops and flows */
+.loop-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; }
+.loop-cycle {
+  border: 1px solid var(--color-ink);
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.fig-callout {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+.vflow { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+.vnode {
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+  padding: 10px 14px;
+}
+.vnode strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.vnode span { display: block; font-size: 13px; color: var(--color-muted); line-height: 1.45; margin-top: 2px; }
+.varrow { font-family: var(--font-mono); font-size: 13px; padding: 4px 0 4px 18px; }
+.branches { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+@media (max-width: 640px) {
+  .branches { grid-template-columns: 1fr; }
+}
+
+/* Fig: funnel */
+.funnel-stage { display: flex; align-items: stretch; gap: 8px; margin-top: 8px; }
+.funnel-kill {
+  flex: 1;
+  border: 1px solid var(--color-ink);
+  background: var(--color-lime);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+.funnel-band {
+  flex: none;
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
