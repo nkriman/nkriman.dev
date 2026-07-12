@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<Base title="Writing · Nicolás Kriman">
+  <h1>Writing</h1>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+        <span class="meta"> · {post.data.pubDate.toISOString().slice(0, 10)}</span>
+      </li>
+    ))}
+    {posts.length === 0 && <li class="meta">First post coming soon.</li>}
+  </ul>
+</Base>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Notes on building with AI.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url} />
+  </head>
+  <body>
+    <header class="site">
+      <a href="/">Nicolás Kriman</a>
+      <nav>
+        <a href="/blog">Writing</a>
+        <a href="https://github.com/nkriman">GitHub</a>
+        <a href="https://www.linkedin.com/in/nkriman/">LinkedIn</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+<style is:global>
+  @import '../styles/global.css';
+</style>
