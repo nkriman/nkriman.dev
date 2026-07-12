@@ -16,7 +16,7 @@ I'll work one example in detail, because I've actually built the first half of i
 
 A mid-market PE firm's deal-sourcing capacity is set by senior judgment, and senior judgment is scarce by construction. Evaluating a deal properly costs senior attention, and that cost sets two numbers that define the business: how many deals the firm can evaluate per month, and the minimum deal size worth evaluating at all.
 
-The same teaser gets a 20-minute kill from a senior partner and a six-hour "maybe" from a capable VP. The partner saw something familiar and disqualifying. The VP saw a plausible company and started building a model. That delta, multiplied across every deal in the funnel, is the firm's real cost structure. Everything else is overhead on top of it.
+The same teaser gets a 20-minute kill from a senior partner and a six-hour "maybe" from a capable VP. The partner saw something familiar and disqualifying. The VP saw a plausible company and started building a model. That delta, multiplied across every deal in the funnel, is the core of the firm's cost structure. Most of the rest is overhead on top of it.
 
 <figure class="fig">
   <div class="fig-frame">
@@ -32,7 +32,7 @@ The same teaser gets a 20-minute kill from a senior partner and a six-hour "mayb
     </div>
     <div class="fig-note">delta × every deal in the funnel = the firm's evaluation cost structure → sets the deals-per-month ceiling · sets the minimum-deal-size floor</div>
   </div>
-  <figcaption>One teaser, two costs. The delta, multiplied across the funnel, is the firm's real cost structure.</figcaption>
+  <figcaption>One teaser, two costs. The delta, multiplied across the funnel, is the core of the firm's cost structure.</figcaption>
 </figure>
 
 ## The skeleton
@@ -59,7 +59,7 @@ I wanted to know how much of that partner's 20-minute kill sits in the public re
   <figcaption>The artifact format every captured pattern takes: judgment becomes a card, an inspectable object.</figcaption>
 </figure>
 
-The skeleton took hours, and that speed cuts both ways. Anyone can have this list by Friday; I'd bet every competent competitor already carries a version of it in their heads. I reconstructed the industry's shared knowledge from public sources between breakfast and dinner.
+The skeleton took hours, and that speed cuts both ways. Anyone can have this list by Friday; competent competitors already carry a version of it in their heads. I reconstructed the industry's shared knowledge from public sources between breakfast and dinner.
 
 A firm's edge is precisely what's absent from that list. The seventh pattern. The override a partner applies when all six official criteria say yes and something still smells wrong. Generic AI ships with the textbook, and the textbook is the part with no edge in it.
 
@@ -87,11 +87,11 @@ A firm's edge is precisely what's absent from that list. The seventh pattern. Th
 
 ## Getting at the seventh pattern
 
-The obvious move fails. Ask a partner "how do you evaluate deals?" and you get the training-manual version: team, market, unit economics, the stuff already on the firm's website. Experts cannot accurately self-report their own decision process. Zacharakis and Meyer showed this with venture capitalists: the criteria investors said they used diverged substantially from the criteria that statistically explained their actual decisions. Any capture effort that just asks experts what they do will faithfully automate the training manual and miss the edge entirely. I'd bet this is the standard failure mode of most "AI transformation" projects in knowledge work, and I'd bet most of them never find out.
+The obvious move fails. Ask a partner "how do you evaluate deals?" and you get the training-manual version: team, market, unit economics, the stuff already on the firm's website. Experts cannot accurately self-report their own decision process. Zacharakis and Meyer showed this with venture capitalists: the criteria investors said they used diverged substantially from the criteria that statistically explained their actual decisions. Any capture effort that just asks experts what they do will faithfully automate the training manual and miss the edge entirely. I'd bet this is a common failure mode of "AI transformation" projects in knowledge work, and the kind that rarely gets noticed.
 
 The working method is Gary Klein's Critical Decision Method: incident-based expert interviews. You walk the partner through specific real deals. The one killed in 30 minutes. The pass a competitor later won big on. The one that fooled them. At each step you probe: what did you notice, what did you expect, what did you ask for next, what answer would have changed your mind. The knowledge surfaces case by case, because that's how it's stored.
 
-The honest price: 30 to 40 hours per senior expert, and I don't think it compresses. The incidents are where the judgment lives, and nobody has found a shortcut through them.
+The honest price: 30 to 40 hours per senior expert, and I don't think it compresses. The incidents are where the judgment lives, and I haven't found a shortcut through them.
 
 ## What capture produces
 
@@ -125,7 +125,7 @@ The firm's pattern library: the situation-types its best people recognize on sig
 
 Public sources, meanwhile, overflow with explicit rules and thresholds: "no customer over 20 percent of revenue" appears in every playbook I read. The scarce layers, the ones worth the elicitation bill, are the patterns, the cues, and the overrides.
 
-Deployment follows one principle: scale the no, slow the yes. Fast rejection is pure gain. Every teaser killed in an hour on captured patterns, when it used to take a week of VP time, returns senior attention to the funnel. A fast automated yes is exactly where pattern-matching fails: deal sourcing gives slow, noisy feedback, the condition under which expert intuition is least trustworthy. So the system prepares, flags, and kills. Humans decide the yes.
+Deployment follows one principle: scale the no, slow the yes. Fast rejection is almost pure gain. Every teaser killed in an hour on captured patterns, when it used to take a week of VP time, returns senior attention to the funnel. A fast automated yes is exactly where pattern-matching fails: deal sourcing gives slow, noisy feedback, the condition under which expert intuition is least trustworthy. So the system prepares, flags, and kills. Humans decide the yes.
 
 <figure class="fig">
   <div class="fig-frame">
@@ -157,7 +157,7 @@ The economics follow too. Make evaluation an order of magnitude cheaper and the 
 
 There's a validation step available here that most knowledge-work automation never gets. A firm with decent records is sitting on a labeled dataset: years of teasers, CIMs, diligence files, and the decision made on each one. Replay them. Give the captured system each deal as it looked on the day it arrived, and compare its call to what the firm did and, where it's known, to what happened after.
 
-The agreement rate is the boring output. The disagreements are the product. Every deal where the system and the partner split points at one of two gaps: the system was missing context the partner had (a phone call that never made it into the file), or the partner was running a pattern nobody captured. Both are elicitation leads. Take the disagreement back into the interview room, walk the incident again, and either the intake spec gains a new context requirement or the library gains its seventh pattern. Backtesting turns capture from a one-shot interview project into a loop that finds its own holes.
+The agreement rate is the boring output. The disagreements are the product. A deal where the system and the partner split usually points at one of two gaps: the system was missing context the partner had (a phone call that never made it into the file), or the partner was running a pattern nobody captured. Both are elicitation leads. Take the disagreement back into the interview room, walk the incident again, and either the intake spec gains a new context requirement or the library gains its seventh pattern. Backtesting would turn capture from a one-shot interview project into a loop that finds its own holes.
 
 <figure class="fig">
   <div class="fig-frame">
@@ -184,7 +184,7 @@ Two honest limits. The deal file the firm kept is contaminated by hindsight (it 
 
 ## Where it breaks
 
-Three failure modes, and they generalize well beyond PE.
+Three failure modes stand out, and none of them is specific to PE.
 
 Incentives. A partner's undocumented judgment is personal leverage inside the firm. It's why they're hard to fire and expensive to poach. Asking them to spend 40 hours externalizing it triggers rational resistance, and the general form is uncomfortable: the people whose judgment you most need captured are the ones with the most to lose from capture. The mitigation is to frame and pay for the work as multiplying the partner: their read applied to more deals than they could personally touch, their standard becoming the house standard. I don't know whether that framing survives contact with an actual partner's actual self-interest. It might. It's the open question I'd watch first.
 
@@ -196,4 +196,4 @@ Garbage-in at scale. The economics point down-market, and information quality wo
 
 The skeleton library, the CDM protocol, the backtest loop, the scale-the-no architecture: all of it runs on model capability that shipped a while ago. The project's actual substance is 30 to 40 hours per expert of structured disagreement with what those experts believe about their own minds, plus the pipeline to keep the output alive.
 
-Every knowledge-work domain has its version of the minimum viable deal size: the smallest problem worth a senior person's attention. Law has one; so do underwriting and engineering review. Cut the cost of evaluation by ten and that floor drops; a tail of work nobody could afford to judge becomes judgeable. The firms that get there first will be the ones that treated elicitation as the engineering problem. The model was ready before they started.
+Most knowledge-work domains have a version of the minimum viable deal size: the smallest problem worth a senior person's attention. Law has one; so do underwriting and engineering review. Cut the cost of evaluation by ten and that floor drops; a tail of work nobody could afford to judge becomes judgeable. The firms that get there first will be the ones that treated elicitation as the engineering problem. The model was ready before they started.
