@@ -1,8 +1,8 @@
 ---
-import '@fontsource/ibm-plex-sans/400.css';
-import '@fontsource/ibm-plex-sans/400-italic.css';
-import '@fontsource/ibm-plex-sans/500.css';
-import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/space-grotesk/400.css';
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/600.css';
+import '@fontsource/space-grotesk/700.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
 import '@fontsource/ibm-plex-mono/600.css';
@@ -25,28 +25,26 @@ const onWriting = Astro.url.pathname.startsWith('/blog');
     <link rel="canonical" href={Astro.url} />
   </head>
   <body>
-    <header class="site">
-      <div class="shell">
+    <div class="frame">
+      <header class="site">
         <a class="mark" href="/" aria-label="Nicolás Kriman — home">nk<span class="cursor"></span></a>
         <nav>
           <a href="/blog" class:list={[{ active: onWriting }]}>Writing</a>
           <a href="https://github.com/nkriman">GitHub</a>
           <a href="https://www.linkedin.com/in/nkriman/">LinkedIn</a>
         </nav>
-      </div>
-    </header>
-    <main class:list={[{ 'prose-page': prose }]}>
-      <slot />
-    </main>
-    <footer class="site">
-      <div class="shell">
+      </header>
+      <main class:list={[{ 'prose-page': prose }]}>
+        <slot />
+      </main>
+      <footer class="site">
         <div class="id">Nicolás Kriman</div>
         <nav>
           <a href="https://github.com/nkriman">GitHub</a>
           <a href="https://www.linkedin.com/in/nkriman/">LinkedIn</a>
         </nav>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>
 <style is:global>

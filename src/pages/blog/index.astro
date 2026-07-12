@@ -7,6 +7,8 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <Base title="Writing · Nicolás Kriman">
-  <h1>Writing</h1>
+  <div class="pad" style="padding-bottom: 0;">
+    <h1>Writing</h1>
+  </div>
   <PostList posts={posts} />
 </Base>

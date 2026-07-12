@@ -7,15 +7,49 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <Base title="Nicolás Kriman">
-  <h1>Nicolás Kriman</h1>
-  <p class="intro">
-    AI lead at Alpaca, a YC-backed brokerage-infrastructure company. I build agentic
-    systems for developer productivity: coding agents, evals, harness engineering.
-    Before this, first COO and later VP of Data at a LatAm private credit firm.
-  </p>
+  <section class="hero">
+    <div class="hero-grid" id="hero-motion"></div>
+    <div class="hero-content">
+      <h1><span id="typed" data-text="Nicolás Kriman">Nicolás Kriman</span><span class="cursor hero-cursor"></span></h1>
+      <p class="intro">
+        AI lead at Alpaca, a YC-backed brokerage-infrastructure company. I build agentic
+        systems for developer productivity: coding agents, evals, harness engineering.
+        Before this, first COO and later VP of Data at a LatAm private credit firm.
+      </p>
+    </div>
+  </section>
   <div class="section-label">Writing</div>
   <PostList posts={posts} />
 </Base>
-<style>
-  .intro { max-width: var(--width-prose); }
-</style>
+
+<script is:inline>
+  (() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Typewriter: H1 is server-rendered in full, then retyped once on load.
+    const typed = document.getElementById('typed');
+    if (typed) {
+      const full = typed.dataset.text;
+      let i = 0;
+      typed.textContent = '';
+      const timer = setInterval(() => {
+        typed.textContent = full.slice(0, ++i);
+        if (i >= full.length) clearInterval(timer);
+      }, 55);
+    }
+
+    // Grid pings: random cells flash like system activity.
+    const grid = document.getElementById('hero-motion');
+    if (grid) {
+      setInterval(() => {
+        const ping = document.createElement('div');
+        ping.className = 'ping';
+        ping.style.left = Math.floor(Math.random() * 22) * 48 + 1 + 'px';
+        ping.style.top = Math.floor(Math.random() * 6) * 48 + 1 + 'px';
+        ping.style.background = Math.random() < 0.75 ? '#C6F211' : '#15C0D6';
+        grid.appendChild(ping);
+        setTimeout(() => ping.remove(), 800);
+      }, 650);
+    }
+  })();
+</script>

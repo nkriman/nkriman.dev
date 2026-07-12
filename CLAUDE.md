@@ -1,7 +1,8 @@
 # nkriman.dev — personal site and blog
 
-Astro 5 static site, typography-first, zero client JS. Deploys via Vercel Git integration
-on push to main.
+Astro 5 static site, typography-first. Client JS is limited to one small inline script for
+homepage motion (typewriter + grid pings); everything else ships zero JS. Deploys via Vercel
+Git integration on push to main.
 
 ## Commands
 - `npm run dev` — local dev server
@@ -26,9 +27,12 @@ on push to main.
 - Everything published here must survive a skeptical staff engineer reading it aloud.
 
 ## Design principles
-- Design system v1.0 (tokens in `src/styles/tokens.css`): IBM Plex Sans/Mono, single light
-  theme, ink/paper/cyan palette, 1040px shell + 680px prose column, 1px borders, no radius,
-  no shadows. Cyan is reserved for links, hover and the cursor mark — never body text.
+- Motion system v2 (tokens in `src/styles/tokens.css`): Space Grotesk + IBM Plex Mono, single
+  light theme. One ink-bordered frame on darker paper; structural borders 1px ink, hairlines
+  #E2E7E0. Lime #C6F211 is the interaction color (instant hover fills), cyan #15C0D6 only for
+  the cursor mark and link underlines. No radius, no shadows, no transitions.
+- Homepage hero ticker and metric counters from the motion spec are NOT implemented: they need
+  real copy and real numbers from Nicolás first. Never ship placeholder metrics.
 - No AI-generated hero art, no glassmorphism, no badges/widgets. Fast pages are a design feature.
 - Design direction decisions belong to Nicolás.
 

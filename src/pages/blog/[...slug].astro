@@ -10,9 +10,11 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 <Base title={`${post.data.title} · Nicolás Kriman`} description={post.data.description} prose>
-  <article>
-    <span class="meta">{post.data.pubDate.toISOString().slice(0, 10)}</span>
-    <h1>{post.data.title}</h1>
-    <Content />
-  </article>
+  <div class="pad">
+    <article>
+      <span class="meta">{post.data.pubDate.toISOString().slice(0, 10)}</span>
+      <h1>{post.data.title}</h1>
+      <Content />
+    </article>
+  </div>
 </Base>
