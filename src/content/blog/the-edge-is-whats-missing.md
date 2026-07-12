@@ -1,5 +1,5 @@
 ---
-title: "The Edge Is What's Missing"
+title: "The edge is what's missing"
 description: "The models are ready. The binding constraint is getting a specific firm's judgment out of three to five senior heads, and that's an elicitation problem."
 pubDate: 2026-07-12
 draft: false
@@ -10,7 +10,7 @@ In plenty of knowledge-work domains the capability question is settled. Models a
 
 An expert's advantage over a smart generalist is knowing where to look: which situation-type this is, which question to ask next, when to stop asking and decide. Recognition and localization carry the skill. Reasoning inside the frame, once it's set, is close to a commodity now.
 
-I'll work one example in detail, because I've actually built the first half of it: private-equity deal sourcing.
+I'll work one example in detail: private-equity deal sourcing.
 
 ## The bottleneck
 
@@ -18,26 +18,29 @@ A mid-market PE firm's deal-sourcing capacity is set by senior judgment, and sen
 
 The same teaser gets a 20-minute kill from a senior partner and a six-hour "maybe" from a capable VP. The partner saw something familiar and disqualifying. The VP saw a plausible company and started building a model. That delta, multiplied across every deal in the funnel, is the core of the firm's cost structure. Most of the rest is overhead on top of it.
 
+The shape isn't specific to PE. A business that sells judgment tends to carry its own version of the delta, and wherever it appears it sets the same two numbers: a throughput ceiling, how much work the senior people can evaluate, and a minimum-stakes floor, the smallest problem worth their attention. Law prices matters this way; so do underwriting and engineering review. Below the floor sits work that goes unjudged because judging it costs more than the stake justifies.
+
 <figure class="fig">
   <div class="fig-frame">
     <span class="fig-label">fig 1 · the cost of a look</span>
-    <div class="chip">one teaser</div>
+    <div class="chip">the same input</div>
+    <div class="varrow">↓ lands on two desks</div>
     <div class="bar-row">
-      <div class="bar-who"><strong>Senior partner</strong><span>recognized a disqualifying pattern</span></div>
-      <div class="bar-track"><div class="bar" style="width:6%;"></div><span class="bar-time">20 min</span><span class="chip chip-ink">kill</span></div>
+      <div class="bar-who"><strong>The expert</strong><span>recognized a familiar pattern</span></div>
+      <div class="bar-track"><div class="bar" style="width:5%;"></div><span class="bar-time">minutes</span><span class="chip chip-lime">no</span></div>
     </div>
     <div class="bar-row">
-      <div class="bar-who"><strong>Capable VP</strong><span>started building a model</span></div>
-      <div class="bar-track"><div class="bar" style="width:78%;"></div><span class="bar-time">6 hours</span><span class="chip">maybe</span></div>
+      <div class="bar-who"><strong>The capable generalist</strong><span>rebuilt it from first principles</span></div>
+      <div class="bar-track"><div class="bar" style="width:82%;"></div><span class="bar-time">hours</span><span class="chip">maybe</span></div>
     </div>
-    <div class="fig-note">delta × every deal in the funnel = the firm's evaluation cost structure → sets the deals-per-month ceiling · sets the minimum-deal-size floor</div>
+    <div class="fig-note">delta × volume = the economics of a judgment business → a throughput ceiling · a minimum-stakes floor</div>
   </div>
-  <figcaption>One teaser, two costs. The delta, multiplied across the funnel, is the core of the firm's cost structure.</figcaption>
+  <figcaption>The same input, two costs. The delta sets the throughput ceiling and the minimum-stakes floor.</figcaption>
 </figure>
 
 ## The skeleton
 
-I wanted to know how much of that partner's 20-minute kill sits in the public record. So I mined it: the Stanford and Yale search-fund studies, IESE's research on failed acquisitions, practitioner playbooks, buyer forums. In hours, this produced a skeleton pattern library for screening sub-$5M EBITDA services businesses. Six patterns, each a triple: cues, expectancy, default action.
+How much of that partner's 20-minute kill sits in the public record? Mine the Stanford and Yale search-fund studies, IESE's research on failed acquisitions, practitioner playbooks, and buyer forums, and a few hours of work yields a skeleton pattern library for screening sub-$5M EBITDA services businesses. Six patterns, each a triple: cues, expectancy, default action.
 
 1. **The owner is the business.** Customer relationships run through the owner; there's no second management layer. Expect revenue to leave with the owner. Pass, or price the transition risk with a long earnout.
 2. **The disguised single customer.** Apparently diverse customers turn out to be subsidiaries of one parent, or concentrated in one cyclical industry. Demand customer-level revenue before LOI; stress-test losing the top two.
@@ -46,20 +49,22 @@ I wanted to know how much of that partner's 20-minute kill sits in the public re
 5. **The deal you've fallen for.** After a long search, confirmation bias converts structural problems into fixable ones. Disciplined buyers walk away from 80 to 90 percent of signed LOIs. The pattern to recognize is in the buyer, and it's the hardest one to see.
 6. **The re-trade fork.** Diligence surfaces a material problem; the reflexive move is renegotiating price. Experienced investors often convert the finding into better terms while protecting the post-close relationship.
 
+The triple is the format the naturalistic-decision-making literature keeps finding when it looks at experts, and it travels: what did you notice, what did that make you expect, what do you do about it by default. A domain with a public literature yields a skeleton like this in hours, because a profession's shared layer is, sooner or later, written down.
+
 <figure class="fig">
   <div class="fig-frame">
-    <span class="fig-label">fig 2 · anatomy of a pattern</span>
+    <span class="fig-label">fig 2 · anatomy of a captured pattern</span>
     <div class="anatomy">
-      <div class="anatomy-head">P4 · the numbers don't deposit</div>
-      <div class="anatomy-field"><strong>cues</strong><span>deposits ≠ reported revenue · aggressive add-backs · revenue spike in the final 6 months</span></div>
-      <div class="anatomy-field"><strong>expectancy</strong><span>earnings are dressed for sale</span></div>
-      <div class="anatomy-field"><strong>default action</strong><span>rebuild revenue from 24 months of bank statements; walk if unresolved</span></div>
+      <div class="anatomy-head">the card</div>
+      <div class="anatomy-field"><strong>cues</strong><span>what the expert noticed, before any analysis</span></div>
+      <div class="anatomy-field"><strong>expectancy</strong><span>what the cues made them expect</span></div>
+      <div class="anatomy-field"><strong>default action</strong><span>what they do about it, unless something overrides</span></div>
     </div>
   </div>
-  <figcaption>The artifact format every captured pattern takes: judgment becomes a card, an inspectable object.</figcaption>
+  <figcaption>Captured judgment becomes a card, an inspectable object. Pattern 4 above is one filled instance.</figcaption>
 </figure>
 
-The skeleton took hours, and that speed cuts both ways. Anyone can have this list by Friday; competent competitors already carry a version of it in their heads. I reconstructed the industry's shared knowledge from public sources between breakfast and dinner.
+The skeleton takes hours, and that speed cuts both ways. Anyone can have this list by Friday; competent competitors already carry a version of it in their heads.
 
 A firm's edge is precisely what's absent from that list. The seventh pattern. The override a partner applies when all six official criteria say yes and something still smells wrong. Generic AI ships with the textbook, and the textbook is the part with no edge in it.
 
@@ -67,22 +72,22 @@ A firm's edge is precisely what's absent from that list. The seventh pattern. Th
   <div class="fig-frame">
     <span class="fig-label">fig 3 · the edge is what's missing</span>
     <div class="pcard-grid">
-      <div class="pcard"><strong>P1</strong><span>the owner is the business</span></div>
-      <div class="pcard"><strong>P2</strong><span>the disguised single customer</span></div>
-      <div class="pcard"><strong>P3</strong><span>the reluctant seller</span></div>
-      <div class="pcard"><strong>P4</strong><span>the numbers don't deposit</span></div>
-      <div class="pcard"><strong>P5</strong><span>the deal you've fallen for</span></div>
-      <div class="pcard"><strong>P6</strong><span>the re-trade fork</span></div>
+      <div class="pcard"><strong>P1</strong><span>textbook · public</span></div>
+      <div class="pcard"><strong>P2</strong><span>textbook · public</span></div>
+      <div class="pcard"><strong>P3</strong><span>textbook · public</span></div>
+      <div class="pcard"><strong>P4</strong><span>textbook · public</span></div>
+      <div class="pcard"><strong>P5</strong><span>textbook · public</span></div>
+      <div class="pcard"><strong>P6</strong><span>textbook · public</span></div>
     </div>
-    <div class="pcard-group-label">public · reconstructed in hours · every competitor has these</div>
+    <div class="pcard-group-label">the shared layer: public, reconstructable in hours, held by everyone competent</div>
     <div class="pcard-grid">
       <div class="pcard pcard-dashed"><strong>P7</strong><span>?</span></div>
       <div class="pcard pcard-dashed"><strong>P8</strong><span>?</span></div>
       <div class="pcard pcard-dashed"><strong>Pn</strong><span>?</span></div>
     </div>
-    <div class="pcard-group-label">the firm's edge: exists only in senior heads, absent from every public source → what the engagement captures</div>
+    <div class="pcard-group-label">the edge: only in senior heads → what capture is for</div>
   </div>
-  <figcaption>P1 through P6 are public. The empty slots are the valuable part.</figcaption>
+  <figcaption>The textbook reconstructs in hours. The edge is the empty slots.</figcaption>
 </figure>
 
 ## Getting at the seventh pattern
@@ -97,65 +102,62 @@ The honest price: 30 to 40 hours per senior expert, and I don't think it compres
 
 Done properly, elicitation yields three layers.
 
-The firm's pattern library: the situation-types its best people recognize on sight, including the ones missing from my public skeleton. The cue inventory: early signals like how a seller answers a document request, or the timing of a sale process; experts flatly deny having these until you walk them through incidents and the cues fall out of their own retellings. And the acquisition map: expert evaluation is a loop (read, notice what's missing or suspicious, request specific information, re-read, repeat until conviction or kill), and a large share of senior skill is knowing the next request, plus knowing when to stop and decide.
+The firm's pattern library: the situation-types its best people recognize on sight, including the ones missing from the public skeleton. The cue inventory: early signals like how a seller answers a document request, or the timing of a sale process; experts flatly deny having these until you walk them through incidents and the cues fall out of their own retellings. And the acquisition map: expert evaluation is a loop (read, notice what's missing or suspicious, request specific information, re-read, repeat until conviction or kill), and a large share of senior skill is knowing the next request, plus knowing when to stop and decide.
 
 <figure class="fig">
   <div class="fig-frame">
     <span class="fig-label">fig 4 · the evaluation loop</span>
-    <div class="loop-line">
+    <div class="vflow">
       <span class="chip">read the material</span>
-      <span class="fig-arrow">→</span>
-      <div class="loop-cycle">
+      <div class="varrow">↓</div>
+      <div class="loop-cycle-v">
         <span class="chip">notice what's missing or suspicious</span>
-        <span class="fig-arrow">→</span>
-        <span class="chip">request specific information</span>
-        <span class="fig-arrow">→</span>
+        <div class="varrow">↓</div>
+        <div class="chip-row"><span class="chip">request specific information</span><span class="fig-callout">← senior skill: knowing the next question</span></div>
+        <div class="varrow">↓</div>
         <span class="chip">re-read</span>
-        <span class="fig-arrow">↺</span>
+        <div class="loop-return">↺ back to notice · repeat until decided</div>
       </div>
-      <span class="fig-arrow">→</span>
-      <span class="chip chip-lime">conviction</span>
-      <span class="fig-arrow">/</span>
-      <span class="chip chip-ink">kill</span>
+      <div class="chip-row"><span class="varrow">↓ exit</span><span class="fig-callout">senior skill: knowing when to stop asking and decide</span></div>
+      <div class="chip-row"><span class="chip chip-lime">kill</span><span class="chip chip-ink">conviction</span></div>
     </div>
-    <div class="fig-note">senior skill sits in two places → on the request arrow: knowing the next question · on the exits: knowing when to stop asking and decide</div>
   </div>
-  <figcaption>Evaluation is a loop, and the loop's control policy is the captured asset: a checklist scores documents once; this decides what to look at next.</figcaption>
+  <figcaption>Evaluation is a loop, and the loop's control policy is the captured asset: a checklist scores a document once; this decides what to look at next.</figcaption>
 </figure>
 
-Public sources, meanwhile, overflow with explicit rules and thresholds: "no customer over 20 percent of revenue" appears in every playbook I read. The scarce layers, the ones worth the elicitation bill, are the patterns, the cues, and the overrides.
+Public sources, meanwhile, overflow with explicit rules and thresholds: "no customer over 20 percent of revenue" shows up in playbook after playbook. The scarce layers, the ones worth the elicitation bill, are the patterns, the cues, and the overrides.
 
-Deployment follows one principle: scale the no, slow the yes. Fast rejection is almost pure gain. Every teaser killed in an hour on captured patterns, when it used to take a week of VP time, returns senior attention to the funnel. A fast automated yes is exactly where pattern-matching fails: deal sourcing gives slow, noisy feedback, the condition under which expert intuition is least trustworthy. So the system prepares, flags, and kills. Humans decide the yes.
+Deployment follows one principle: scale the no, slow the yes. Fast rejection is almost pure gain. A fast automated yes is exactly where pattern-matching fails: judgment domains tend to give slow, noisy feedback, the condition under which expert intuition is least trustworthy. So the system prepares, flags, and kills. Humans decide the yes.
 
 <figure class="fig">
   <div class="fig-frame">
     <span class="fig-label">fig 5 · scale the no, slow the yes</span>
-    <div class="funnel-stage"><div class="funnel-band" style="width:100%;">incoming teasers</div></div>
+    <div class="funnel-stage"><div class="funnel-band" style="width:100%;">incoming work</div></div>
     <div class="funnel-stage">
-      <div class="funnel-kill">← ✕ automated kills · hours, on captured patterns</div>
-      <div class="funnel-band" style="width:56%;">survivors → prepare</div>
+      <div class="funnel-kill" style="width:52%;">← ✕ automated kills · fast, on captured patterns</div>
+      <div class="funnel-band" style="width:48%;">prepare</div>
     </div>
     <div class="funnel-stage">
-      <div class="funnel-kill">← ✕ automated kills</div>
-      <div class="funnel-band" style="width:36%;">survivors → flag</div>
+      <div class="funnel-kill" style="width:16%;">← ✕ kills</div>
+      <div class="funnel-band" style="width:32%;">flag</div>
     </div>
     <div class="funnel-stage">
-      <div class="funnel-kill">← ✕ automated kills</div>
-      <div class="funnel-band" style="width:24%;">senior review</div>
+      <div class="funnel-kill" style="width:10%;">← ✕ kills</div>
+      <div class="funnel-band" style="width:22%;">senior review</div>
     </div>
     <div class="funnel-stage">
-      <div class="funnel-band chip-ink" style="width:24%; margin-left:auto; background:var(--color-ink); color:var(--color-surface);">humans decide the yes</div>
+      <div class="funnel-band" style="width:22%; background:var(--color-ink); color:var(--color-surface);">humans decide the yes</div>
     </div>
-    <div class="fig-note">slow, noisy feedback makes a fast automated yes the failure mode → exits are fast and wide, the descent is deliberately narrow and slow</div>
+    <div class="fig-note">slow, noisy feedback is where a fast automated yes fails → exits wide and fast at the top, the descent narrow and slow</div>
   </div>
   <figcaption>Exits are fast and wide; the descent is deliberately narrow and slow.</figcaption>
 </figure>
 
-The economics follow too. Make evaluation an order of magnitude cheaper and the minimum viable deal size drops. A long tail of smaller companies, currently unservable because evaluating them costs more than the position justifies, becomes addressable. That's market expansion stacked on top of the throughput gain.
+In the PE instance, every teaser killed in an hour on captured patterns, when it used to take a week of VP time, returns senior attention to the funnel. The economics follow. Make evaluation an order of magnitude cheaper and the minimum viable deal size drops. A long tail of smaller companies, currently unservable because evaluating them costs more than the position justifies, becomes addressable. That's market expansion stacked on top of the throughput gain.
 
 ## Backtesting the judgment
 
-There's a validation step available here that most knowledge-work automation never gets. A firm with decent records is sitting on a labeled dataset: years of teasers, CIMs, diligence files, and the decision made on each one. Replay them. Give the captured system each deal as it looked on the day it arrived, and compare its call to what the firm did and, where it's known, to what happened after.
+There's a validation step available here that most knowledge-work automation never gets. A firm with decent records is sitting on a labeled dataset: years of inputs, the call its experts made on each one and, where it's known, what happened after. Replay them. Give the captured system each case as it looked on the day it arrived, and compare. In PE the dataset is concrete: teasers, CIMs, and diligence files, with the pass or pursue on each.
 
 The agreement rate is the boring output. The disagreements are the product. A deal where the system and the partner split usually points at one of two gaps: the system was missing context the partner had (a phone call that never made it into the file), or the partner was running a pattern nobody captured. Both are elicitation leads. Take the disagreement back into the interview room, walk the incident again, and either the intake spec gains a new context requirement or the library gains its seventh pattern. Backtesting would turn capture from a one-shot interview project into a loop that finds its own holes.
 
@@ -163,18 +165,19 @@ The agreement rate is the boring output. The disagreements are the product. A de
   <div class="fig-frame">
     <span class="fig-label">fig 6 · the backtest loop</span>
     <div class="vflow">
-      <div class="vnode"><strong>historical deal files</strong><span>as-of-that-day snapshots · warning: hindsight contamination, files must be rebuilt as-of-arrival</span></div>
+      <div class="vnode"><strong>historical decisions</strong><span>each case as it looked on arrival · warning: records must be rebuilt without hindsight</span></div>
       <div class="varrow">↓</div>
-      <div class="vnode"><strong>replay</strong><span>each deal through the captured system, as it looked on arrival</span></div>
+      <div class="vnode"><strong>replay</strong><span>through the captured system</span></div>
       <div class="varrow">↓</div>
-      <div class="vnode"><strong>compare</strong><span>against the partner's actual call, and the outcome where known</span></div>
+      <div class="vnode"><strong>compare</strong><span>against the expert's actual call, and the outcome where known</span></div>
       <div class="varrow">↓ on disagreement</div>
       <div class="branches">
-        <div class="vnode"><strong>system lacked context</strong><span>the partner had something the file didn't → add an intake requirement</span></div>
-        <div class="vnode"><strong>partner ran an uncaptured pattern</strong><span>new elicitation session → new pattern card</span></div>
+        <div class="vnode"><strong>system lacked context</strong><span>the expert had something the record didn't → add an intake requirement</span></div>
+        <div class="vnode"><strong>expert ran an uncaptured pattern</strong><span>new elicitation session → new card</span></div>
       </div>
       <div class="varrow">↓ both branches feed</div>
-      <div class="vnode"><strong>pattern library</strong><span>which feeds the system · ↺ loop closes</span></div>
+      <div class="vnode"><strong>pattern library</strong><span>the capture, one card richer</span></div>
+      <div class="loop-return">↺ the updated library runs the next replay · disagreements are the product</div>
     </div>
   </div>
   <figcaption>Disagreements, routed back into elicitation, are the product; the accuracy score is a byproduct.</figcaption>
@@ -196,4 +199,4 @@ Garbage-in at scale. The economics point down-market, and information quality wo
 
 The skeleton library, the CDM protocol, the backtest loop, the scale-the-no architecture: all of it runs on model capability that shipped a while ago. The project's actual substance is 30 to 40 hours per expert of structured disagreement with what those experts believe about their own minds, plus the pipeline to keep the output alive.
 
-Most knowledge-work domains have a version of the minimum viable deal size: the smallest problem worth a senior person's attention. Law has one; so do underwriting and engineering review. Cut the cost of evaluation by ten and that floor drops; a tail of work nobody could afford to judge becomes judgeable. The firms that get there first will be the ones that treated elicitation as the engineering problem. The model was ready before they started.
+Cut the cost of evaluation by ten and the minimum-stakes floor drops; a tail of work nobody could afford to judge becomes judgeable. The firms that get there first will be the ones that treated elicitation as the engineering problem. The model was ready before they started.
