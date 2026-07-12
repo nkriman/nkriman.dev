@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -7,19 +8,14 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 ---
 <Base title="Nicolás Kriman">
   <h1>Nicolás Kriman</h1>
-  <p>
+  <p class="intro">
     AI lead at Alpaca, a YC-backed brokerage-infrastructure company. I build agentic
     systems for developer productivity: coding agents, evals, harness engineering.
     Before this, first COO and later VP of Data at a LatAm private credit firm.
   </p>
-  <h2>Writing</h2>
-  <ul>
-    {posts.map((post) => (
-      <li>
-        <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-        <span class="meta"> · {post.data.pubDate.toISOString().slice(0, 10)}</span>
-      </li>
-    ))}
-    {posts.length === 0 && <li class="meta">First post coming soon.</li>}
-  </ul>
+  <div class="section-label">Writing</div>
+  <PostList posts={posts} />
 </Base>
+<style>
+  .intro { max-width: var(--width-prose); }
+</style>

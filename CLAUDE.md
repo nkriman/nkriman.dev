@@ -26,7 +26,9 @@ on push to main.
 - Everything published here must survive a skeptical staff engineer reading it aloud.
 
 ## Design principles
-- Typography over decoration: measure ~68ch, generous rhythm, restrained palette, light/dark.
+- Design system v1.0 (tokens in `src/styles/tokens.css`): IBM Plex Sans/Mono, single light
+  theme, ink/paper/cyan palette, 1040px shell + 680px prose column, 1px borders, no radius,
+  no shadows. Cyan is reserved for links, hover and the cursor mark — never body text.
 - No AI-generated hero art, no glassmorphism, no badges/widgets. Fast pages are a design feature.
 - Design direction decisions belong to Nicolás.
 

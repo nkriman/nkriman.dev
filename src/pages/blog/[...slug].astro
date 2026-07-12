@@ -9,8 +9,10 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
-<Base title={`${post.data.title} · Nicolás Kriman`} description={post.data.description}>
-  <h1>{post.data.title}</h1>
-  <p class="meta">{post.data.pubDate.toISOString().slice(0, 10)}</p>
-  <Content />
+<Base title={`${post.data.title} · Nicolás Kriman`} description={post.data.description} prose>
+  <article>
+    <span class="meta">{post.data.pubDate.toISOString().slice(0, 10)}</span>
+    <h1>{post.data.title}</h1>
+    <Content />
+  </article>
 </Base>

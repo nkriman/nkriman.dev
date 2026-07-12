@@ -1,0 +1,16 @@
+/* Design tokens — nkriman.com design system v1.0 (light only). */
+:root {
+  --color-ink: #0B1115;
+  --color-paper: #F4F7F8;
+  --color-surface: #FFFFFF;
+  --color-line: #D7E0E3;
+  --color-muted: #586872;
+  --color-accent: #0C6F7D;
+  --color-cyan: #15C0D6;
+  --color-chip: #EDF1F2;
+  --width-site: 1040px;
+  --width-prose: 680px;
+  --pad-page: 24px;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
