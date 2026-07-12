@@ -11,18 +11,28 @@ interface Props {
   title: string;
   description?: string;
   prose?: boolean;
+  lang?: 'en' | 'es';
+  alternate?: { lang: string; href: string };
 }
-const { title, description = 'Notes on building with AI.', prose = false } = Astro.props;
+const {
+  title,
+  description = 'Notes on building with AI.',
+  prose = false,
+  lang = 'en',
+  alternate,
+} = Astro.props;
 const onWriting = Astro.url.pathname.startsWith('/blog');
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={Astro.url} />
+    {alternate && <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />}
+    {alternate && <link rel="alternate" hreflang={lang} href={Astro.url} />}
   </head>
   <body>
     <div class="frame">

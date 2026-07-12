@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getCollection, render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -8,11 +8,29 @@ export async function getStaticPaths() {
 }
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const translation = post.data.translation
+  ? await getEntry('blog', post.data.translation)
+  : undefined;
+const alternate =
+  translation && !translation.data.draft
+    ? { lang: translation.data.lang, href: new URL(`/blog/${translation.id}/`, Astro.site).href }
+    : undefined;
+const translationLabel = post.data.lang === 'es' ? 'Read in English →' : 'Leer en español →';
 ---
-<Base title={`${post.data.title} · Nicolás Kriman`} description={post.data.description} prose>
+<Base
+  title={`${post.data.title} · Nicolás Kriman`}
+  description={post.data.description}
+  lang={post.data.lang}
+  alternate={alternate}
+  prose
+>
   <div class="pad">
     <article>
-      <span class="meta">{post.data.pubDate.toISOString().slice(0, 10)}</span>
+      <span class="meta">
+        {post.data.pubDate.toISOString().slice(0, 10)}
+        {alternate && <> · <a href={`/blog/${translation.id}/`}>{translationLabel}</a></>}
+      </span>
       <h1>{post.data.title}</h1>
       <p class="lede">{post.data.description}</p>
       <Content />

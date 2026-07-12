@@ -3,6 +3,8 @@ title: "Stop tuning prompts. Build the harness."
 description: "AI still feels unsteerable. The fix is an engineering discipline borrowed from software's own past."
 pubDate: 2026-07-12
 draft: false
+lang: en
+translation: deja-de-ajustar-prompts-construye-el-harness
 ---
 
 ## The problem
