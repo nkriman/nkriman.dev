@@ -387,6 +387,94 @@ hr::after {
   color: var(--color-muted);
 }
 
+/* ---- Article figures: hand-built diagrams in system style ---- */
+.fig { margin: 40px 0; }
+.fig figcaption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin-top: 12px;
+}
+.nest {
+  border: 1px solid var(--color-ink);
+  padding: 16px;
+}
+.nest-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 12px;
+}
+.nest-harness { background: var(--color-surface); }
+.nest-context { background: var(--color-paper); }
+.nest-prompt {
+  background: var(--color-lime);
+  width: fit-content;
+  padding: 10px 16px 2px;
+}
+.nest-prompt .nest-label { color: var(--color-ink); margin-bottom: 8px; }
+
+.flow-frame {
+  border: 1px solid var(--color-ink);
+  padding: 16px;
+  background: var(--color-surface);
+}
+.flow-frame-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 14px;
+}
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.flow-box {
+  flex: 1;
+  border: 1px solid var(--color-ink);
+  padding: 12px 14px;
+  background: var(--color-paper);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.flow-box strong {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.flow-box span {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+.flow-model { background: var(--color-ink); }
+.flow-model strong { color: var(--color-lime); }
+.flow-model span { color: var(--color-surface); }
+.flow-arrow {
+  align-self: center;
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  color: var(--color-ink);
+  padding: 0 6px;
+}
+.flow-arrow::before { content: '→'; }
+@media (max-width: 720px) {
+  .flow { flex-direction: column; }
+  .flow-arrow { padding: 4px 0; }
+  .flow-arrow::before { content: '↓'; }
+}
+
 table {
   border-collapse: collapse;
   width: 100%;

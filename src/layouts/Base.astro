@@ -27,7 +27,7 @@ const onWriting = Astro.url.pathname.startsWith('/blog');
   <body>
     <div class="frame">
       <header class="site">
-        <a class="mark" href="/" aria-label="Nicolás Kriman — home">nk<span class="cursor"></span></a>
+        <a class="mark" href="/" aria-label="Nicolás Kriman, home">nk<span class="cursor"></span></a>
         <nav>
           <a href="/blog" class:list={[{ active: onWriting }]}>Writing</a>
           <a href="https://github.com/nkriman">GitHub</a>

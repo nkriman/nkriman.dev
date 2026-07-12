@@ -13,6 +13,19 @@ That's not a small problem, because it's no longer only the AI teams. It's the a
 
 The field spent the last two years working out where the dials actually are. They arrived in three stages, and the names are worth knowing, because each one marks a bigger surface you can engineer.
 
+<figure class="fig">
+  <div class="nest nest-harness">
+    <span class="nest-label">3 · the harness: everything you build around the model</span>
+    <div class="nest nest-context">
+      <span class="nest-label">2 · the context: everything the model sees</span>
+      <div class="nest nest-prompt">
+        <span class="nest-label">1 · the prompt</span>
+      </div>
+    </div>
+  </div>
+  <figcaption>The three surfaces. Each one contains the last.</figcaption>
+</figure>
+
 ## Stage one: prompt engineering
 
 Prompt engineering is what everyone tried first: wording the request cleverly to coax a better answer. In code, it's a single line:
@@ -26,7 +39,7 @@ It works, a little. But the prompt is a shaky surface to build on. Small wording
 
 ## Stage two: context engineering
 
-The next realization was that the prompt is a sliver of what the model actually sees. Everything else you put in front of it is context: the data, the retrieved documents, the examples, the tools it's allowed to call. And context is engineerable:
+The next realization was that the prompt is a sliver of what the model actually sees. Everything else you put in front of it is **context**: the data, the retrieved documents, the examples, the tools it's allowed to call. And context is engineerable:
 
 ```python
 numbers  = fetch_q3_revenue(source="finance_db")   # real data, not recalled
@@ -41,7 +54,7 @@ Karpathy's mental model is the one to keep. The model is like a CPU, and its con
 
 ## Stage three: harness engineering
 
-Context is what the model sees. Reliability needs more than good inputs. It also needs the checks on the model's way out, and the fixes that keep yesterday's mistake from recurring. That whole apparatus is the harness.
+Context is what the model sees. Reliability needs more than good inputs. It also needs the checks on the model's way out, and the fixes that keep yesterday's mistake from recurring. That whole apparatus is **the harness**.
 
 The term comes from Mitchell Hashimoto, creator of Terraform and Ghostty, in a February 2026 essay. His formula: Agent = Model + Harness. The model is the part you rent and don't control; the harness is the part you build and own. His definition of the discipline is a single rule: "anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again."
 
@@ -49,7 +62,7 @@ A recurring mistake, in other words, gets engineered out once, rather than re-pr
 
 ## What's actually in a harness
 
-Software has a head start here, because it built this exact thing decades ago and called it a test harness: the machinery around a piece of code that feeds it controlled inputs, runs it under known conditions, captures what comes out, and checks it against what should have come out, automatically, the same way every time. The code was the part that kept changing; the harness stayed put, and that fixed apparatus was what made the code safe to depend on.
+Software has a head start here. It built this exact thing decades ago and called it a test harness: the machinery around a piece of code that feeds it controlled inputs, runs it under known conditions, captures what comes out, and checks it against what should have come out, automatically, the same way every time. The code was the part that kept changing; the harness stayed put, and that fixed apparatus was what made the code safe to depend on.
 
 A model's harness is the same idea, with more of it, because a model is less predictable than code. Put next to the earlier snippets, the model shrinks to a single line and everything around it is the work:
 
@@ -62,7 +75,28 @@ if not reconciles(report.totals, numbers):          # verification: catch it bef
     report = escalate_to_human(draft, "totals off")  # deterministic fallback
 ```
 
-So a harness is really four things: the context assembled before the model runs, the output contract it has to satisfy, the verification that catches a bad answer, and the deterministic steps you keep out of the model's hands.
+So a harness is really four things:
+
+- **The context** assembled before the model runs.
+- **The output contract** the answer has to satisfy.
+- **The verification** that catches a bad answer.
+- **The deterministic steps** you keep out of the model's hands.
+
+<figure class="fig">
+  <div class="flow-frame">
+    <span class="flow-frame-label">the harness: you build and own all of this</span>
+    <div class="flow">
+      <div class="flow-box"><strong>context</strong><span>data, examples, tools</span></div>
+      <div class="flow-arrow" aria-hidden="true"></div>
+      <div class="flow-box flow-model"><strong>model</strong><span>rented</span></div>
+      <div class="flow-arrow" aria-hidden="true"></div>
+      <div class="flow-box"><strong>output contract</strong><span>structure it must satisfy</span></div>
+      <div class="flow-arrow" aria-hidden="true"></div>
+      <div class="flow-box"><strong>verification</strong><span>checked before anyone acts on it</span></div>
+    </div>
+  </div>
+  <figcaption>The model is the only part you rent. The rest is yours to engineer and test.</figcaption>
+</figure>
 
 Hashimoto's own example is a plain text file he keeps in his projects, AGENTS.md, where every line traces back to a specific mistake the agent made once and won't make again:
 
@@ -79,7 +113,15 @@ You could read that whole harness in a minute; real ones run to hundreds of such
 
 None of this is specific to programming, and that's the part that should interest anyone past the engineering team. A harness is just the engineered, testable system around a model, and any team putting AI into real work is building one, whether they call it that or not.
 
-Take the analyst's quarterly report. The prompt is "summarize Q3." The context is which numbers the model is handed, and from where. The output contract is the structure the report has to follow. The verification is the check that flags a figure that can't be right before it reaches the board. And the deterministic step is the one you keep away from the model: pulling the real numbers from the system of record instead of letting it recall them. The prompt is the smallest piece of that. The rest, from the sourcing to the reconciliation check, is the harness, and that's what lets you run the same report next quarter and trust it again.
+Take the analyst's quarterly report:
+
+- The **prompt** is "summarize Q3."
+- The **context** is which numbers the model is handed, and from where.
+- The **output contract** is the structure the report has to follow.
+- The **verification** is the check that flags a figure that can't be right before it reaches the board.
+- The **deterministic step** is the one you keep away from the model: pulling the real numbers from the system of record instead of letting it recall them.
+
+The prompt is the smallest piece of that. The rest, from the sourcing to the reconciliation check, is the harness, and that's what lets you run the same report next quarter and trust it again.
 
 ## Where this leaves your investment
 
