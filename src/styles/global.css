@@ -317,7 +317,13 @@ footer.site nav { display: flex; gap: 20px; }
 
 /* ---- Article prose ---- */
 article .meta { display: block; }
-article h1 { margin-top: 12px; }
+article h1 { margin-top: 12px; margin-bottom: 0.4em; }
+article .lede {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 0 0 40px;
+}
 strong { font-weight: 600; }
 
 code {
@@ -335,6 +341,13 @@ pre {
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.65;
+}
+/* Wide code breaks out of the 680px prose column (spec 08). */
+@media (min-width: 960px) {
+  main.prose-page pre {
+    width: 880px;
+    margin-left: -100px;
+  }
 }
 pre code {
   background: none;

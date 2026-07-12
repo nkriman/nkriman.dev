@@ -14,6 +14,7 @@ const { Content } = await render(post);
     <article>
       <span class="meta">{post.data.pubDate.toISOString().slice(0, 10)}</span>
       <h1>{post.data.title}</h1>
+      <p class="lede">{post.data.description}</p>
       <Content />
     </article>
   </div>

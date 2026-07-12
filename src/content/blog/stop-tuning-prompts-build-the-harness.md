@@ -1,0 +1,93 @@
+---
+title: "Stop tuning prompts. Build the harness."
+description: "Why AI still feels unsteerable — and the engineering discipline, borrowed from software's own past, that fixes it."
+pubDate: 2026-07-12
+draft: false
+---
+
+## The problem
+
+AI has changed how teams work, and it will keep changing it. But for most people, using it still feels like alchemy. You change a few words in a prompt, the output comes back completely different, and nobody can quite say why. If that's the whole method, quality comes down to luck.
+
+That's not a small problem, because it's no longer only the AI teams. It's the analyst generating a quarterly report, the engineer writing tests, the support lead automating replies. Anyone putting a model into real work hits the same wall: the results are good, then they're wrong, and there's no reliable dial to turn.
+
+The field spent the last two years working out where the dials actually are. They arrived in three stages, and the names are worth knowing, because each one names a bigger surface you can engineer.
+
+## Stage one: prompt engineering
+
+Prompt engineering is what everyone tried first — wording the request cleverly to coax a better answer. In code, it's a single line:
+
+```python
+answer = model("Summarize our Q3 revenue.")
+# read it, hope it's right, reword it when it isn't
+```
+
+It works, a little. But the prompt is a shaky surface to build on. Small wording changes swing the results, the same prompt behaves differently next month when the vendor updates the model, and there's no way to test it that an engineer would recognize as testing. Good prompting is a real skill; it just happens to be the kind that lives in one person's head and leaves when they do.
+
+## Stage two: context engineering
+
+The next realization was that the prompt is a sliver of what the model actually sees. Everything else you put in front of it — the data, the retrieved documents, the examples, the tools it's allowed to call — is context, and context is engineerable:
+
+```python
+numbers  = fetch_q3_revenue(source="finance_db")   # real data, not recalled
+examples = load_prior_reports(n=2)                  # show the shape you want back
+prompt   = assemble(instructions, numbers, examples)
+answer   = model(prompt)
+```
+
+Andrej Karpathy, a founding member of OpenAI and former head of AI at Tesla, described this as "the delicate art and science of filling the context window with just the right information for the next step." Shopify's CEO Tobi Lütke put it more plainly: "the art of providing all the context for the task to be plausibly solvable by the LLM."
+
+Karpathy's mental model is the one worth keeping. The model is like a CPU, and its context window is like RAM — a small, precious working memory. Context engineering is the job of deciding what gets loaded into that memory, and in what order, before the model runs. The same model can look brilliant or careless on the identical task, depending on what you loaded in.
+
+## Stage three: harness engineering
+
+Context is what the model sees. Reliability needs more than good inputs — it needs everything around the model: the checks on the way out, the steps that run regardless of what the model decides, the fixes that keep yesterday's mistake from recurring. That whole apparatus is the harness.
+
+The term comes from Mitchell Hashimoto, creator of Terraform and Ghostty, in a February 2026 essay. His formula is worth memorizing: Agent = Model + Harness — the model being the part you rent and don't control, the harness the part you build and own. And his definition of the discipline is the most practical sentence in the field: "anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again."
+
+A recurring mistake, in other words, gets engineered out once — rather than re-prompted around every time it shows up.
+
+## What's actually in a harness
+
+Software has a head start here, because it built this exact thing decades ago and called it a test harness: the machinery around a piece of code that feeds it controlled inputs, runs it under known conditions, captures what comes out, and checks it against what should have come out — automatically, the same way every time. The code was the part that kept changing; the harness stayed put, and that fixed apparatus was what made the code safe to depend on.
+
+A model's harness is the same idea, with more of it, because a model is less predictable than code. Put next to the earlier snippets, the model shrinks to a single line and everything around it is the work:
+
+```python
+numbers = fetch_q3_revenue(source="finance_db")     # deterministic step: never the model's job
+draft   = model(assemble(instructions, numbers))
+
+report  = parse(draft, schema=QuarterlyReport)      # output contract: fail loud, not silent
+if not reconciles(report.totals, numbers):          # verification: catch it before the board does
+    report = escalate_to_human(draft, "totals off")  # deterministic fallback
+```
+
+So a harness is really four things: the context assembled before the model runs, the output contract it has to satisfy, the verification that catches a bad answer, and the deterministic steps you keep out of the model's hands.
+
+Hashimoto's own example is a plain text file he keeps in his projects, AGENTS.md, where every line traces back to a specific mistake the agent made once and won't make again:
+
+```
+# AGENTS.md — each line is a mistake that happened exactly once
+- Run `make verify` before proposing any change.
+- Pull revenue from the finance API; do not estimate it.
+- New reports must pass the reconciliation check in checks/totals.py.
+```
+
+You could read that whole harness in a minute; real ones run to hundreds of such lines.
+
+## Why this isn't only about code
+
+None of this is specific to programming, and that's the part that should interest anyone past the engineering team. A harness is just the engineered, testable system around a model, and any team putting AI into real work is building one, whether they call it that or not.
+
+Take the analyst's quarterly report. The prompt is "summarize Q3." The context is which numbers the model is handed, and from where. The output contract is the structure the report has to follow. The verification is the check that flags a figure that can't be right before it reaches the board. And the deterministic step is the one you keep away from the model — pulling the real numbers from the system of record instead of letting it recall them. The prompt is the smallest piece of that. The rest — the sourcing, the structure, the reconciliation check — is the harness, and that's what lets you run the same report next quarter and trust it again.
+
+## Where this leaves your investment
+
+This reframes a decision leaders are making right now, usually without the right frame. Prompt-tuning is not something you can build a team around. It doesn't accumulate, and it breaks the moment the model changes. A harness is a different kind of asset. It outlives any single model version, it's where your controls and audit trail sit, and it's the part of an AI system you can actually test and improve.
+
+So when someone asks how to make AI reliable, the useful answer points away from the model — you can rent the same one your competitor has — and toward the harness you build around it.
+
+## Sources
+
+- Mitchell Hashimoto, ["My AI Adoption Journey"](https://mitchellh.com/writing/my-ai-adoption-journey) (Feb 5, 2026)
+- Simon Willison, ["Context engineering"](https://simonwillison.net/2025/Jun/27/context-engineering/) (source of the Karpathy and Lütke quotes)
